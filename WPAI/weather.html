@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Report</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        .button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        #weatherReport {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            font-size: 18px;
+            width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Weather Report</h1>
+
+    <label for="cityInput">Enter city name:</label>
+    <input type="text" id="cityInput">
+    <button class="button" onclick="showWeather()">Get Weather</button>
+
+    <div id="weatherReport"></div>
+
+    <script>
+        function showWeather() {
+            const city = document.getElementById('cityInput').value.toLowerCase();
+            const weatherReport = document.getElementById('weatherReport');
+
+            if (city === "hyderabad") {
+                weatherReport.innerHTML = "<p>The weather in Hyderabad is sunny.</p>";
+            } else if (city === "chennai") {
+                weatherReport.innerHTML = "<p>The weather in Chennai is rainy.</p>";
+            } else {
+                weatherReport.innerHTML = "<p>Weather information for " + city + " is not available.</p>";
+            }
+        }
+    </script>
+
+</body>
+</html>

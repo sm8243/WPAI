@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Application Form</title>
+<style>
+body{
+background-color:lightblue;
+}
+</style>
+<script>
+function validateForm() {
+    // Get form elements
+    var fname = document.getElementById("fname").value;
+    var lname = document.getElementById("lname").value;
+    var dob = document.getElementById("dob").value;
+    var age = document.getElementById("age").value;
+    var genderMale = document.getElementById("male").checked;
+    var genderFemale = document.getElementById("female").checked;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var confirmPassword = document.getElementById("confirm_password").value;
+
+    // Check if fields are empty
+    if (fname == "" || lname == "" || dob == "" || age == "" || email == "" || password == "" || confirmPassword == "") {
+        alert("All fields must be filled out");
+        return false;
+    }
+
+    // Check if age is a number
+    if (isNaN(age) || age <= 0  || age >100) {
+        alert("Please enter a valid age");
+        return false;
+    }
+
+    // Check gender selection
+    if (!genderMale && !genderFemale) {
+        alert("Please select a gender");
+        return false;
+    }
+
+    // Check email format
+    var emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+    if (!emailPattern.test(email)) {
+        alert("Please enter a valid email address");
+        return false;
+    }
+
+    // Check password and confirm password match
+    if (password !== confirmPassword) {
+        alert("Passwords do not match");
+        return false;
+    }
+
+    return true;
+}
+</script>
+</head>
+<body>
+
+<h2>Application Form</h2>
+
+<form onsubmit="return validateForm()">
+  <div>
+    <label for="fname">First Name:</label>
+    <input type="text" id="fname" name="fname">
+  </div>
+  <div>
+    <label for="lname">Last Name:</label>
+    <input type="text" id="lname" name="lname">
+  </div>
+  <div>
+    <label for="dob">Date of birth:</label>
+    <input type="date" id="dob" name="dob" placeholder="mm/dd/yyyy">
+  </div>
+  <div>
+    <label for="age">Age:</label>
+    <input type="number" id="age" name="age">
+  </div>
+  <div>
+    <label for="gender">Gender:</label>
+    <input type="radio" id="male" name="gender" value="male">
+    <label for="male">Male</label>
+    <input type="radio" id="female" name="gender" value="female">
+    <label for="female">Female</label>
+  </div>
+  <div>
+    <label for="email">Email Address:</label>
+    <input type="email" id="email" name="email" placeholder="Enter email address">
+  </div>
+  <div>
+    <label for="position">Positions Available:</label>
+    <select id="position" name="position">
+      <option value="junior">Junior Developer</option>
+      <option value="midlevel">Mid-level Developer</option>
+      <option value="senior">Senior Developer</option>
+    </select>
+  </div>
+  <div>
+    <label for="language">Programming Languages:</label>
+    <br>
+    <input type="checkbox" id="java" name="language" value="java">
+    <label for="java">Java</label>
+    <br>
+    <input type="checkbox" id="javascript" name="language" value="javascript">
+    <label for="javascript">JavaScript</label>
+    <br>
+    <input type="checkbox" id="python" name="language" value="python">
+    <label for="python">Python</label>
+  </div>
+  <div>
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password">
+  </div>
+  <div>
+    <label for="confirm_password">Confirm Password:</label>
+    <input type="password" id="confirm_password" name="confirm_password">
+  </div>
+  
+  <div class="button">
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+  </div>
+</form>
+
+</body>
+</html>

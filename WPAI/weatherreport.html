@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Application Form</title>
+<style>
+body{
+background-color: lightblue;
+}
+</style>
+</head>
+<body>
+
+<h2>Application Form</h2>
+  <div>
+    <label for="name">City:</label>
+    <input type="text" id="name" name="name">
+  </div>
+  <div class="button">
+    <button type="submit" onclick="Weather()">Submit</button>
+      </div>
+<div id="weather"></div>
+<script>
+function Weather(){
+const city= document.getElementById('name').value;
+if (city==="bhubaneswar"){
+weather.innerHTML="<p>Sunny</p>";
+}
+}
+</script>
+
+
+</body>
+</html>
